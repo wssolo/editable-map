@@ -1,4 +1,4 @@
-const API_URL = "https://editable-map-api.workers.dev";
+const API_URL = "https://editable-map-api.ws530813759.workers.dev";
 
 let currentMapType = "amap";
 let map = null;
@@ -101,3 +101,4 @@ document.getElementById("btn-osm").onclick = () => {
    默认加载高德
 ====================== */
 initAMap();
+
