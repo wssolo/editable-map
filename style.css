@@ -1,48 +1,19 @@
-const API_URL = "https://你的-worker-地址.workers.dev";
-
-// 初始化地图
-const map = L.map("map").setView([39.9042, 116.4074], 5);
-
-// 加载地图瓦片
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: "© OpenStreetMap"
-}).addTo(map);
-
-// 所有标记
-let markers = [];
-
-// 从服务器加载标记
-async function loadMarkers() {
-  const res = await fetch(API_URL);
-  const data = await res.json();
-
-  data.forEach(item => {
-    const marker = L.marker([item.lat, item.lng])
-      .addTo(map)
-      .bindPopup(item.text);
-
-    markers.push(marker);
-  });
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  text-align: center;
 }
 
-// 添加新标记
-map.on("click", async (e) => {
-  const text = prompt("请输入标记名称：");
-  if (!text) return;
+h2 {
+  margin: 10px 0 5px;
+}
 
-  const body = {
-    lat: e.latlng.lat,
-    lng: e.latlng.lng,
-    text
-  };
+p {
+  margin: 0 0 10px;
+  color: #555;
+}
 
-  await fetch(API_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
-  });
-
-  location.reload(); // 简单粗暴刷新
-});
-
-loadMarkers();
+#map {
+  width: 100%;
+  height: 90vh;
+}
