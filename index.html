@@ -1,36 +1,27 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>多人在线可编辑地图</title>
+  <meta charset="UTF-8" />
+  <title>摄影机位记录地图</title>
 
-  <!-- Leaflet（用于 OSM） -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-
-  <!-- 高德地图 JS API -->
-  <script src="https://webapi.amap.com/maps?v=2.0&key=a7b3b9e1a9483053e49f0dece9f8870a"></script>
-
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<h2>🌍 多人在线可编辑地图</h2>
-<p>右上角可切换地图源（默认高德）</p>
-
-<!-- 地图源切换 -->
-<div id="map-switch">
-  <button id="btn-amap">高德地图</button>
-  <button id="btn-osm">OSM</button>
+<div id="topbar">
+  📷 爬楼摄影机位记录地图
 </div>
 
 <div id="map"></div>
 
-<!-- Leaflet JS -->
+<!-- 右键菜单 -->
+<div id="context-menu" class="hidden"></div>
+
+<!-- 备注查看面板 -->
+<div id="panel" class="hidden"></div>
+
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="map.js"></script>
-
 </body>
 </html>
