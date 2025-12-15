@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>摄影机位记录地图</title>
-
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div id="topbar">
-  📷 爬楼摄影机位记录地图
+<div id="container">
+  <div id="sidebar">
+    <input id="search" placeholder="搜索地点 / 备注">
+    <div id="list"></div>
+  </div>
+  <div id="map"></div>
 </div>
-
-<div id="map"></div>
-
-<!-- 右键菜单 -->
-<div id="context-menu" class="hidden"></div>
-
-<!-- 备注查看面板 -->
-<div id="panel" class="hidden"></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="map.js"></script>
