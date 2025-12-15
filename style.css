@@ -1,33 +1,54 @@
-body {
+html, body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  text-align: center;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-h2 {
-  margin: 10px 0 5px;
-}
-
-p {
-  margin: 0 0 10px;
-  color: #555;
+#topbar {
+  height: 44px;
+  line-height: 44px;
+  padding-left: 16px;
+  background: #111;
+  color: #fff;
+  font-weight: 500;
 }
 
 #map {
-  width: 100%;
-  height: 90vh;
+  height: calc(100% - 44px);
 }
 
-/* 地图切换按钮 */
-#map-switch {
+/* 右键菜单 */
+#context-menu {
   position: absolute;
-  top: 70px;
-  right: 20px;
-  z-index: 1000;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  overflow: hidden;
+  z-index: 2000;
 }
 
-#map-switch button {
-  padding: 6px 10px;
-  margin-left: 5px;
+#context-menu div {
+  padding: 10px 16px;
   cursor: pointer;
+}
+
+#context-menu div:hover {
+  background: #f2f2f2;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 面板 */
+#panel {
+  position: absolute;
+  right: 0;
+  top: 44px;
+  width: 360px;
+  height: calc(100% - 44px);
+  background: #fff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+  overflow-y: auto;
+  padding: 12px;
 }
