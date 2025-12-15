@@ -1,8 +1,20 @@
-const API_URL = "https://editable-map-api.ws530813759.workers.dev/";
+const API_URL = "https://你的-worker地址.workers.dev";
 
 let currentMapType = "amap";
 let map = null;
-let markers = [];
+
+/* ======================
+   安全初始化高德
+====================== */
+function tryInitAMap() {
+  if (typeof AMap === "undefined") {
+    console.warn("高德地图加载失败，自动切换到 OSM");
+    currentMapType = "osm";
+    initOSM();
+    return;
+  }
+  initAMap();
+}
 
 /* ======================
    高德地图
@@ -50,11 +62,10 @@ function initOSM() {
 }
 
 /* ======================
-   通用逻辑
+   通用
 ====================== */
 function clearMap() {
   document.getElementById("map").innerHTML = "";
-  markers = [];
 }
 
 async function loadMarkers() {
@@ -62,12 +73,12 @@ async function loadMarkers() {
   const data = await res.json();
 
   data.forEach(item => {
-    if (currentMapType === "amap") {
-      const marker = new AMap.Marker({
+    if (currentMapType === "amap" && typeof AMap !== "undefined") {
+      new AMap.Marker({
         position: [item.lng, item.lat],
-        title: item.text
+        title: item.text,
+        map
       });
-      marker.setMap(map);
     } else {
       L.marker([item.lat, item.lng])
         .addTo(map)
@@ -85,11 +96,11 @@ async function saveMarker(lat, lng, text) {
 }
 
 /* ======================
-   按钮切换
+   切换按钮
 ====================== */
 document.getElementById("btn-amap").onclick = () => {
   currentMapType = "amap";
-  initAMap();
+  tryInitAMap();
 };
 
 document.getElementById("btn-osm").onclick = () => {
@@ -98,8 +109,6 @@ document.getElementById("btn-osm").onclick = () => {
 };
 
 /* ======================
-   默认加载高德
+   默认启动（安全）
 ====================== */
-initAMap();
-
-
+setTimeout(tryInitAMap, 300);
