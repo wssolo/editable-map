@@ -1,29 +1,65 @@
 html, body {
   margin: 0;
   height: 100%;
-  font-family: sans-serif;
+  font-family: system-ui, sans-serif;
 }
 
-#container {
+.hidden { display: none; }
+
+/* 首页封面 */
+#cover {
+  height: 100%;
+  background: linear-gradient(120deg, #111, #333);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-content {
+  text-align: center;
+}
+
+.cover-content button {
+  margin-top: 20px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 主体 */
+#app {
   display: flex;
   height: 100%;
 }
 
 #sidebar {
-  width: 300px;
+  width: 280px;
+  background: #fff;
   border-right: 1px solid #ddd;
-  padding: 10px;
-  overflow-y: auto;
+  transition: width 0.3s;
+  overflow: hidden;
 }
 
-#map {
-  flex: 1;
+#sidebar.collapsed {
+  width: 40px;
+}
+
+#sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #f5f5f5;
 }
 
 #search {
-  width: 100%;
+  width: calc(100% - 16px);
+  margin: 8px;
   padding: 6px;
-  margin-bottom: 10px;
+}
+
+#list {
+  overflow-y: auto;
 }
 
 .item {
@@ -33,5 +69,9 @@ html, body {
 }
 
 .item:hover {
-  background: #f5f5f5;
+  background: #f0f0f0;
+}
+
+#map {
+  flex: 1;
 }
