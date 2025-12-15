@@ -8,9 +8,23 @@
 </head>
 <body>
 
-<div id="container">
+<!-- 首页封面 -->
+<div id="cover">
+  <div class="cover-content">
+    <h1>📷 爬楼摄影机位记录</h1>
+    <p>记录 · 回溯 · 地理化</p>
+    <button id="enter">进入地图</button>
+  </div>
+</div>
+
+<!-- 主体 -->
+<div id="app" class="hidden">
   <div id="sidebar">
-    <input id="search" placeholder="搜索地点 / 备注">
+    <div id="sidebar-header">
+      <span>机位列表</span>
+      <button id="toggle">☰</button>
+    </div>
+    <input id="search" placeholder="搜索备注 / 地点">
     <div id="list"></div>
   </div>
   <div id="map"></div>
