@@ -1,4 +1,4 @@
-const API_URL = "https://你的-worker地址.workers.dev";
+const API_URL = "https://editable-map-api.ws530813759.workers.dev/";
 
 const map = L.map("map").setView([31.23, 121.47], 13);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png").addTo(map);
@@ -63,3 +63,4 @@ document.getElementById("search").oninput = e => {
 };
 
 loadData();
+
