@@ -3,29 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <title>摄影机位管理系统</title>
+
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css" />
 </head>
 <body>
 
 <div id="cover">
   <h1>摄影机位管理系统</h1>
-  <p>记录可拍 / 不可拍的位置</p>
   <button id="enter">进入地图</button>
 </div>
 
 <div id="app" class="hidden">
   <div id="sidebar">
-    <h2>机位列表</h2>
+    <input id="search" placeholder="搜索机位" />
+    <select id="statusFilter">
+      <option value="">全部状态</option>
+      <option value="active">常驻</option>
+      <option value="temporary">临时</option>
+      <option value="abandoned">已废弃</option>
+      <option value="pending">待定</option>
+      <option value="invalid">无效</option>
+    </select>
     <div id="spotList"></div>
   </div>
+
   <div id="map"></div>
+
+  <div id="toolbar">
+    <button id="addSpot">新建机位</button>
+    <button id="drawInvalid">绘制无效区域</button>
+  </div>
 </div>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
 <script src="map.js"></script>
 </body>
 </html>
