@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>摄影机位记录地图</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>摄影机位管理系统</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet/dist/leaflet.css"
+  />
 </head>
 <body>
 
-<!-- 首页封面 -->
 <div id="cover">
-  <div class="cover-content">
-    <h1>📷 爬楼摄影机位记录</h1>
-    <p>记录 · 回溯 · 地理化</p>
-    <button id="enter">进入地图</button>
-  </div>
+  <h1>摄影机位管理系统</h1>
+  <p>记录可拍 / 不可拍的位置</p>
+  <button id="enter">进入地图</button>
 </div>
 
-<!-- 主体 -->
 <div id="app" class="hidden">
   <div id="sidebar">
-    <div id="sidebar-header">
-      <span>机位列表</span>
-      <button id="toggle">☰</button>
-    </div>
-    <input id="search" placeholder="搜索备注 / 地点">
-    <div id="list"></div>
+    <h2>机位列表</h2>
+    <div id="spotList"></div>
   </div>
   <div id="map"></div>
 </div>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="map.js"></script>
 </body>
 </html>
