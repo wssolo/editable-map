@@ -1,8 +1,10 @@
 html, body {
   margin: 0;
   height: 100%;
-  font-family: system-ui, sans-serif;
+  font-family: system-ui;
 }
+
+.hidden { display: none; }
 
 #cover {
   position: fixed;
@@ -10,19 +12,9 @@ html, body {
   background: #111;
   color: #fff;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#cover button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-}
-
-.hidden {
-  display: none;
+  flex-direction: column;
 }
 
 #app {
@@ -31,9 +23,10 @@ html, body {
 }
 
 #sidebar {
-  width: 260px;
+  width: 300px;
   border-right: 1px solid #ddd;
   padding: 10px;
+  box-sizing: border-box;
   overflow-y: auto;
 }
 
@@ -41,8 +34,35 @@ html, body {
   flex: 1;
 }
 
-.marker-active { background: red; }
-.marker-temporary { background: blue; }
-.marker-abandoned { background: black; }
-.marker-pending { background: yellow; }
-.marker-invalid { background: gray; }
+#toolbar {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 6px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+
+#toolbar button {
+  margin: 0 6px;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 16px;
+  width: 420px;
+  max-height: 80%;
+  overflow-y: auto;
+  border-radius: 6px;
+}
