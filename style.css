@@ -4,74 +4,45 @@ html, body {
   font-family: system-ui, sans-serif;
 }
 
-.hidden { display: none; }
-
-/* 首页封面 */
 #cover {
-  height: 100%;
-  background: linear-gradient(120deg, #111, #333);
+  position: fixed;
+  inset: 0;
+  background: #111;
   color: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.cover-content {
-  text-align: center;
-}
-
-.cover-content button {
+#cover button {
   margin-top: 20px;
-  padding: 10px 24px;
+  padding: 10px 20px;
   font-size: 16px;
-  cursor: pointer;
 }
 
-/* 主体 */
+.hidden {
+  display: none;
+}
+
 #app {
   display: flex;
   height: 100%;
 }
 
 #sidebar {
-  width: 280px;
-  background: #fff;
+  width: 260px;
   border-right: 1px solid #ddd;
-  transition: width 0.3s;
-  overflow: hidden;
-}
-
-#sidebar.collapsed {
-  width: 40px;
-}
-
-#sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px;
-  background: #f5f5f5;
-}
-
-#search {
-  width: calc(100% - 16px);
-  margin: 8px;
-  padding: 6px;
-}
-
-#list {
+  padding: 10px;
   overflow-y: auto;
-}
-
-.item {
-  padding: 8px;
-  border-bottom: 1px solid #eee;
-  cursor: pointer;
-}
-
-.item:hover {
-  background: #f0f0f0;
 }
 
 #map {
   flex: 1;
 }
+
+.marker-active { background: red; }
+.marker-temporary { background: blue; }
+.marker-abandoned { background: black; }
+.marker-pending { background: yellow; }
+.marker-invalid { background: gray; }
