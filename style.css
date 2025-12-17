@@ -3,54 +3,26 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-body, html {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
-/* ========== 封面 ========== */
-
-#cover {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(135deg, #111, #333);
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-#cover h1 {
-  margin-bottom: 10px;
-}
-
-#cover button {
-  padding: 12px 24px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-/* ========== 主体 ========== */
-
-.hidden {
-  display: none;
-}
-
+/* 主容器 */
 #app {
   display: flex;
   height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* ========== 左侧栏 ========== */
-
+/* 左侧栏 */
 #sidebar {
   width: 280px;
-  padding: 10px;
   background: #f7f7f7;
   border-right: 1px solid #ccc;
+  padding: 10px;
   overflow-y: auto;
 }
 
@@ -75,33 +47,33 @@ body, html {
   background: #e0e0e0;
 }
 
-/* ========== 地图 ========== */
-
+/* 地图容器 */
 #map {
   flex: 1;
+  height: 100%;
+  position: relative;
 }
 
-/* ========== 工具栏 ========== */
-
+/* 工具栏 */
 #toolbar {
-  position: fixed;
-  bottom: 10px;
+  position: absolute;
+  bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   padding: 8px 12px;
   border-radius: 6px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  z-index: 1000;
 }
 
 #toolbar button {
-  margin: 0 5px;
+  margin: 0 6px;
   padding: 6px 12px;
   cursor: pointer;
 }
 
-/* ========== Modal ========== */
-
+/* Modal */
 .modal {
   position: fixed;
   inset: 0;
@@ -109,7 +81,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 20;
+  z-index: 2000;
 }
 
 .modal-content {
@@ -119,20 +91,4 @@ body, html {
   max-height: 80vh;
   overflow-y: auto;
   border-radius: 6px;
-}
-
-.modal-content h3 {
-  margin-top: 0;
-}
-
-.modal-content label {
-  display: block;
-  margin-top: 10px;
-}
-
-.modal-content input,
-.modal-content textarea,
-.modal-content select {
-  width: 100%;
-  margin-top: 4px;
 }
