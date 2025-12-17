@@ -1,28 +1,42 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+* {
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-.hidden {
-  display: none;
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
+/* ========== 封面 ========== */
+
 #cover {
-  height: 100%;
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #111, #333);
+  color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  background: #111;
-  color: #fff;
+  justify-content: center;
+  z-index: 10;
+}
+
+#cover h1 {
+  margin-bottom: 10px;
 }
 
 #cover button {
-  margin-top: 20px;
-  padding: 10px 24px;
+  padding: 12px 24px;
   font-size: 16px;
+  cursor: pointer;
+}
+
+/* ========== 主体 ========== */
+
+.hidden {
+  display: none;
 }
 
 #app {
@@ -30,49 +44,95 @@ html, body {
   height: 100%;
 }
 
+/* ========== 左侧栏 ========== */
+
 #sidebar {
-  width: 260px;
-  background: #f7f7f7;
-  border-right: 1px solid #ddd;
+  width: 280px;
   padding: 10px;
-  box-sizing: border-box;
+  background: #f7f7f7;
+  border-right: 1px solid #ccc;
   overflow-y: auto;
 }
+
+#sidebar h2 {
+  margin-top: 0;
+}
+
+#sidebar input,
+#sidebar select {
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px;
+}
+
+#spotList div {
+  padding: 6px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+}
+
+#spotList div:hover {
+  background: #e0e0e0;
+}
+
+/* ========== 地图 ========== */
 
 #map {
   flex: 1;
 }
 
+/* ========== 工具栏 ========== */
+
 #toolbar {
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   background: rgba(255,255,255,0.95);
   padding: 8px 12px;
-  border-radius: 8px;
+  border-radius: 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 #toolbar button {
-  margin: 0 4px;
+  margin: 0 5px;
+  padding: 6px 12px;
+  cursor: pointer;
 }
+
+/* ========== Modal ========== */
 
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 20;
 }
 
 .modal-content {
   background: #fff;
   padding: 16px;
   width: 420px;
-  max-height: 80%;
+  max-height: 80vh;
   overflow-y: auto;
   border-radius: 6px;
+}
+
+.modal-content h3 {
+  margin-top: 0;
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  width: 100%;
+  margin-top: 4px;
 }
