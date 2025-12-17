@@ -2,45 +2,69 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>摄影机位管理系统</title>
+  <title>机位管理系统</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Leaflet Draw -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"
+  />
+
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 
+<!-- 封面 -->
 <div id="cover">
-  <h1>摄影机位管理系统</h1>
+  <h1>北京爬楼摄影机位管理系统</h1>
+  <p>记录 · 更新 · 保留历史</p>
   <button id="enter">进入地图</button>
 </div>
 
+<!-- 主应用 -->
 <div id="app" class="hidden">
-  <div id="sidebar">
-    <h3>机位列表</h3>
-    <input id="search" placeholder="搜索机位" />
+
+  <!-- 左侧栏 -->
+  <aside id="sidebar">
+    <h2>机位列表</h2>
+
+    <input id="search" placeholder="搜索机位名称" />
+
     <select id="statusFilter">
       <option value="">全部状态</option>
       <option value="active">常驻</option>
       <option value="temporary">临时</option>
-      <option value="abandoned">废弃</option>
       <option value="pending">待定</option>
+      <option value="abandoned">已废弃</option>
     </select>
-    <div id="spotList"></div>
-  </div>
 
+    <div id="spotList"></div>
+  </aside>
+
+  <!-- 地图 -->
   <div id="map"></div>
 
+  <!-- 底部工具栏 -->
   <div id="toolbar">
-    <button id="addSpot">新建机位</button>
-    <button id="drawInvalid">绘制无效区域</button>
-    <button id="editInvalid">编辑无效区域</button>
+    <button id="addSpot">➕ 新建机位</button>
+    <button id="drawInvalid">🚫 绘制无效区域</button>
   </div>
 </div>
 
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
-<script src="map.js"></script>
+<!-- Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
+<!-- Leaflet Draw -->
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+
+<script src="./map.js"></script>
 </body>
 </html>
